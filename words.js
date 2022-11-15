@@ -973,7 +973,7 @@ let words=["abandonner","abattre", "abri","absence","absolu",
     "pluie",
     "plus",
     "plusieurs",
-    "plutôt",
+    "plutot",
     "poche",
     "poesie",
     "poete",
@@ -1425,6 +1425,5 @@ let words=["abandonner","abattre", "abri","absence","absolu",
     "vue",
     "yeux"
 ]
-let nbreLettre= 4
-let wordsFiltred = words.filter(a =>a.length >nbreLettre)
-console.log(wordsFiltred)
+let nbrLetterMin= 4
+let wordsFiltred = words.filter(a =>a.length > nbrLetterMin)

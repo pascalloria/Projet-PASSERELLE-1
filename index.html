@@ -4,13 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet Passerelle</title>
+    <title>Trouver le mot </title>
     <link rel="stylesheet" href="default.css">
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+        crossorigin="anonymous">
+</script>
 </head>
 <body>
+<header>
+    <div class="container">
+        <h1>Jeux du pendu</h1>
+    </div>
+</header>
+<main>
+    <div class="container">
+        
+        <section id="dessin">
+           <img src="/ressources/images/1.png" alt="" srcset="">
+        </section>
+        <section id="jeux">
+            <h3><div id="motInconnu"></div></h3>
 
+            <input 
+                id="input" 
+                name="input"
+                type="text" 
+                placeholder="Entrez une lettre ou un mot"    
+                autofocus      
+            >
+            <button>Valider</button>    
+            <div id="sousInput"></div>        
+            <div id="availableLetters"></div>
+            <div id="coupsRestant"></div>
+        </section>        
+    </div>
 
-    
+</main>
+<footer>
+    <div class="container">
+        &copy; Proposé par Pascal LORIA
+    </div>        
+</footer>    
+<script src="words.js"></script>
 <script src="pendu.js"></script>    
 </body>
 </html>
