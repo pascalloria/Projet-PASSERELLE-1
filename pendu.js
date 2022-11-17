@@ -79,6 +79,7 @@ function validate(letter) {
                 }
             } else {
                 i++
+                penduImg.attr("src","ressources/images/"+penduImgs[i])
             }           
             coupsRestant()             
         } else {
@@ -107,6 +108,7 @@ function restart () {
         motInconnuJoined = coderMot(motInconnu);
         $(".letters").removeAttr("disabled")
         $("#motInconnu").html(motInconnuJoined);
+        $()
 
     } else {
         alert("Merci d'avoir jouer")
@@ -122,18 +124,24 @@ let motInconnu = wordsFiltred[Math.floor(Math.random()*(wordsFiltred.length-1))]
 let availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 let motInconnuCoder=[];
 let i = 0;
-let motInconnuJoined = coderMot(motInconnu)
-
+let motInconnuJoined = coderMot(motInconnu);
+let penduImgs=[
+    "pendu0.png","pendu1.png",
+    "pendu2.png","pendu3.png",
+    "pendu4.png","pendu5.png",
+    "pendu6.png","pendu7.png",
+    "pendu8.png","pendu9.png",
+    "pendu10.png","pendu11.png",
+    "pendu12.png","pendu13.png"];
 
 // declarer variable DOM
-let input = $("#input")
-let btn = $("button")
-let compteur= $("#coupsRestant")
-let sousInput=$("#sousInput")
-let availableLettersDiv = $("#availableLetters")
+let input = $("#input");
+let btn = $("button");
+let compteur= $("#coupsRestant");
+let sousInput=$("#sousInput");
+let availableLettersDiv = $("#availableLetters");
+let penduImg = $("#penduImg");
 
-
-;
 $("#motInconnu").html(motInconnuJoined);
 
 // Event : bouton ou enter valide l'input
@@ -165,6 +173,8 @@ input.on("input",(e) => {
 
 // reset input Value
 input.click(()=>input.val(""))
+
+
 
 // afficher les lettres
 availableLetters.forEach(letter => {
