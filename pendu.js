@@ -13,7 +13,7 @@ function checkInArray(array,l){
         return false    ;
 }}
 
-function deleteLetterFromAvailableLetters(letter){
+function disabledLetterFromAvailableLetters(letter){
     availableLetters = arrayRemove(availableLetters,letter);
     $("#"+letter).attr("disabled","disabled")
 }
@@ -59,6 +59,7 @@ function motComplet(input){
         victory()
     }else{
         i++
+        updateImg()
         coupsRestant()
     }
 }
@@ -71,7 +72,7 @@ function isValid(value){
 function validate(letter) {
     if (i < coupsMax ) {
         if (verifierInput(letter)) {            
-            deleteLetterFromAvailableLetters(letter)            
+            disabledLetterFromAvailableLetters(letter)            
             if(checkInArray(motInconnu,letter)){
                 addLetterMotCoder(letter)
                 if (motInconnuCoder.join("") == motInconnu){
@@ -79,21 +80,25 @@ function validate(letter) {
                 }
             } else {
                 i++
-                penduImg.attr("src","ressources/images/"+penduImgs[i])
-            }           
-            coupsRestant()             
+                updateImg()
+                coupsRestant()  
+            }         
         } else {
             return
         }        
     } else {
-        alert("vous avez perdu le mot etait " + motInconnu)        
-        desactivate()
-        restart()
+        defeat()
     }
 }
 
+function defeat() {
+    updateImg()
+    desactivate()
+    restart()
+}
+
 function victory(){
-    alert("vous avez gagné le mot à trouvez etait bien : " + motInconnu )
+    
     desactivate()
     restart()
 }
@@ -115,11 +120,15 @@ function restart () {
     }
 }
 
+function updateImg() {
+    penduImg.attr("src","ressources/images/"+penduImgs[i])
+    console.log(penduImgs[i])
+}
+
 //declare variable
-let coupsMax = 11;
+let coupsMax = 12;
 let letter;
 let coupsRestant= () => {compteur.html("coups Restant: " + (coupsMax-i))};
-
 let motInconnu = wordsFiltred[Math.floor(Math.random()*(wordsFiltred.length-1))];
 let availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 let motInconnuCoder=[];
@@ -132,7 +141,7 @@ let penduImgs=[
     "pendu6.png","pendu7.png",
     "pendu8.png","pendu9.png",
     "pendu10.png","pendu11.png",
-    "pendu12.png","pendu13.png"];
+    "pendu12.png"];
 
 // declarer variable DOM
 let input = $("#input");
@@ -173,8 +182,6 @@ input.on("input",(e) => {
 
 // reset input Value
 input.click(()=>input.val(""))
-
-
 
 // afficher les lettres
 availableLetters.forEach(letter => {
