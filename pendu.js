@@ -50,8 +50,7 @@ function addLetterMotCoder(letter) {
 }
 
 function desactivate(){
-    btn.attr("disabled","disabled")
-    //input.attr("disabled","disabled")
+    btn.attr("disabled","disabled")    
 }
 
 function motComplet(input){
