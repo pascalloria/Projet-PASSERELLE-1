@@ -28,6 +28,10 @@ main {
      text-align: center;
     
 }
+
+footer{
+    text-align: center;
+}
 .container {
     margin: 0 auto;
     width: 1000px;
@@ -36,4 +40,15 @@ main {
 #availableLetters{
     margin-top: 3em;
     font-size: 2em;   
+    display:grid;
+    grid-auto-rows: 60px;
+    grid-template-columns: repeat(10,1fr);
+    column-gap: 2em;
+    row-gap: 1em;
+    align-content: center;
+    justify-content: space-around;  
+}
+
+.letters {
+   font-size:1.4em;
 }

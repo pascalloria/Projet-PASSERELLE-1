@@ -77,14 +77,13 @@ function validate() {
             i++
             if(checkInArray(motInconnu,letter)){
                 addLetterMotCoder(letter)
-            }
-
-                
+            }   
+            coupsRestant()             
         } else {
             return
         }        
     } else {
-        alert("vous avez perdu")
+        alert("vous avez perdu le mot etait " + motInconnu)
         coupsRestant()
         desactivate()
     }
@@ -106,8 +105,6 @@ let sousInput=$("#sousInput")
 
 let motInconnuJoined = coderMot(motInconnu);
 $("#motInconnu").html(motInconnuJoined);
-$("#availableLetters").html(availableLetters);
-
 
 // Event : bouton ou enter valide l'input
 btn.click(function (e) { 
