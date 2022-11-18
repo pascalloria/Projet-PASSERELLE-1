@@ -2,8 +2,6 @@
     --couleurPrinciaple :blue;
     --couleurSeconadaire: white;
     --couleurTertiaire: black ;
-
-
 }
 
 
@@ -51,4 +49,40 @@ footer{
 
 .letters {
    font-size:1.4em;
+}
+
+
+@media screen and (max-width :1130px ) {
+    .container {
+        width: 700px;
+    }
+    
+    #availableLetters{        
+        grid-template-columns: repeat(8,1fr);
+        column-gap: 0.5em;        
+    }
+
+
+    
+}
+
+@media screen and (max-width :730px ) {
+    .container {
+        width: 450px;
+    }
+
+    #availableLetters{        
+        grid-template-columns: repeat(6,1fr);               
+    }
+
+    
+}
+@media screen and (max-width :460px ) {
+    .container {
+        width: 90%;
+    } 
+    #availableLetters{        
+        grid-template-columns: repeat(3,1fr);               
+    }
+    
 }

@@ -45,3 +45,7 @@
 ## Idée :
 - Un bouton pour chaque lettre desactivé la lettre une fois proposé ++
 - Animation du pendu ! pendu uniquement en css ?
+- ajouter niveau difficulté.
+- trouvé un theme ?
+- design ?
+- grid last row center ?

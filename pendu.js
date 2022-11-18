@@ -65,7 +65,7 @@ function motComplet(input){
 
 // verifions si la donnée est bien une lettre avec methode RegEx
 function isValid(value){
-    return /^[a-z]/.test(value)
+    return /^[a-zA-Z]/.test(value)
 }
 
 function validate(letter) {
@@ -155,7 +155,7 @@ $("#motInconnu").html(motInconnuJoined);
 // Event : bouton ou enter valide l'input
 btn.click(function (e) { 
     e.preventDefault();
-    validate(input.val())
+    validate(input.val().toLowerCase())
 });
 
 input.keydown(function (e) {
