@@ -21,9 +21,9 @@ function disabledLetterFromAvailableLetters(letter){
 // remplacer le mot a trouver par _ *nbre lettre
 function coderMot (motInconnu) {
     motInconnu.split("").forEach(letter => {
-        motInconnuCoder.push(" _ ")  ;   
+        wordCode.push(" _ ")  ;   
     }); 
-    return motInconnuCoder.join(" ");
+    return wordCode.join(" ");
 }
 
 function verifierInput(l){
@@ -37,16 +37,16 @@ function verifierInput(l){
 }   
 
 function addLetterMotCoder(letter) {
-    let idx=motInconnu.indexOf(letter)
+    let idx=hiddenWord.indexOf(letter)
     let indices = []
     while(idx !=-1) {
         indices.push(idx)    
-        idx=motInconnu.indexOf(letter,idx+1)
+        idx=hiddenWord.indexOf(letter,idx+1)
     }   
     indices.forEach(indice => {        
-        motInconnuCoder[indice]=letter        
+        wordCode[indice]=letter        
     });  
-    $("#motInconnu").html(motInconnuCoder.join(""));   
+    $("#motInconnu").html(wordCode.join(""));   
 }
 
 function desactivate(){
@@ -54,12 +54,12 @@ function desactivate(){
 }
 
 function motComplet(input){
-    if (input === motInconnu){
+    if (input === hiddenWord){
         victory()
     }else{
         i++
         updateImg()
-        coupsRestant()
+        //coupsRestant()
     }
 }
 
@@ -72,15 +72,15 @@ function validate(letter) {
     if (i < coupsMax ) {
         if (verifierInput(letter)) {            
             disabledLetterFromAvailableLetters(letter)            
-            if(checkInArray(motInconnu,letter)){
+            if(checkInArray(hiddenWord,letter)){
                 addLetterMotCoder(letter)
-                if (motInconnuCoder.join("") == motInconnu){
+                if (wordCode.join("") == hiddenWord){
                     victory()
                 }
             } else {
                 i++
                 updateImg()
-                coupsRestant()  
+                //coupsRestant()  
             }         
         } else {
             return
@@ -90,73 +90,102 @@ function validate(letter) {
     }
 }
 
-function defeat() {
-    updateImg()
-    desactivate()
-    restart()
+function defeat() { 
+    i=12  
+    gameOver.html("Vous avez PERDU ! Le personnage etait : " + word)
+    gameEnded()    
 }
 
-function victory(){
+function victory() {  
+    gameOver.html("Vous avez Gagné ! Le personnage est bien : " + word )
+    i=13 
+    gameEnded() 
     
-    desactivate()
-    restart()
 }
 
-function restart () {
-
-    if (confirm("voulez vous rejouer ?")  ){
-       i = 0;
-        motInconnu = wordsFiltred[Math.floor(Math.random()*(wordsFiltred.length-1))];
-        availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-        motInconnuCoder=[] ;
-        motInconnuJoined = coderMot(motInconnu);
-        $(".letters").removeAttr("disabled")
-        $("#motInconnu").html(motInconnuJoined);
-        $()
-
+function clickBtn () {
+    if (state =="gameOn"){
+        validate(input.val().toLowerCase())
     } else {
-        alert("Merci d'avoir jouer")
-    }
+        restartVar()
+        state="gameOn"
+        btn.text("Valider")
+    }  
+}
+
+function gameEnded(){
+    updateImg()
+    btn.text("restart")
+    state="gameOver"
+    //desactivate()
+    $("#lore p").css("display","inline")
+    console.log(character.lien)
+    wiki.attr("href",character.lien)
+    wiki.html(character.name)
+    
+      
+}
+  
+
+
+function restartVar () {
+    i = 0;
+    character = personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))];
+    word = character.name;
+    hiddenWord = word.toLowerCase();
+    availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    wordCode=[] ;
+    wordJoined = coderMot(hiddenWord);
+    $(".letters").removeAttr("disabled");
+    $("#motInconnu").html(wordJoined); 
+    gameOver.html("");
+    updateImg() ;
+    $("#lore p").css("display","none")   ;
+
 }
 
 function updateImg() {
-    penduImg.attr("src","ressources/images/"+penduImgs[i])
-    console.log(penduImgs[i])
+    penduImg.attr("src","ressources/images/"+penduImgs[i])    
 }
 
 //declare variable
-let coupsMax = 12;
+let coupsMax = 11;
 let letter;
-let coupsRestant= () => {compteur.html("coups Restant: " + (coupsMax-i))};
-let motInconnu = wordsFiltred[Math.floor(Math.random()*(wordsFiltred.length-1))];
+let character=personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))]
+let word = character.name;
+let hiddenWord = word.toLowerCase();
 let availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-let motInconnuCoder=[];
+let wordCode=[];
 let i = 0;
-let motInconnuJoined = coderMot(motInconnu);
+let wordJoined = coderMot(hiddenWord);
+let state = "gameOn"
 let penduImgs=[
-    "pendu0.png","pendu1.png",
-    "pendu2.png","pendu3.png",
-    "pendu4.png","pendu5.png",
-    "pendu6.png","pendu7.png",
-    "pendu8.png","pendu9.png",
-    "pendu10.png","pendu11.png",
-    "pendu12.png"];
+    "Pendu0.png","Pendu1.png",
+    "Pendu2.png","Pendu3.png",
+    "Pendu4.png","Pendu5.png",
+    "Pendu6.png","Pendu7.png",
+    "Pendu8.png","Pendu9.png",
+    "Pendu10.png","Pendu11.png",
+    "Pendu12.png","Pendu13.png"];
 
 // declarer variable DOM
 let input = $("#input");
 let btn = $("button");
-let compteur= $("#coupsRestant");
 let sousInput=$("#sousInput");
 let availableLettersDiv = $("#availableLetters");
 let penduImg = $("#penduImg");
+let gameOver= $("#gameOver");
+let race = $("#race");
+let wiki = $("#wiki");
 
-$("#motInconnu").html(motInconnuJoined);
+
+
+//afficher le pattern du mot
+$("#motInconnu").html(wordJoined);
+race.html(character.race)
 
 // Event : bouton ou enter valide l'input
-btn.click(function (e) { 
-    e.preventDefault();
-    validate(input.val().toLowerCase())
-});
+btn.click(()=>clickBtn());
 
 input.keydown(function (e) {
     if(e.keyCode === 13){    

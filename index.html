@@ -14,37 +14,49 @@
 </head>
 <body>
 <header>
-    <div class="container">
-        <h1>Jeux du pendu</h1>
+    <div id="headerDiv" class="container">
+        <img src="ressources/images/header1.png" alt="arbre">
+        <h1>le seigneurs des pendus</h1>
+        <img src="ressources/images/header3.png" alt="anneau">
     </div>
 </header>
 <main>
-    <div class="container">        
-        <section id="dessin">
-           <img id="penduImg" src="ressources/images/pendu0.png" alt="" srcset="">
-        </section>
-        <section id="jeux">
-            <h3><div id="motInconnu"></div></h3>
+    <div id="container" class="container"> 
+        <div id="pendu">
+            <div id="dessin">                
+                <img id="penduImg" src="ressources/images/pendu0.png" alt="" srcset="">  
+                <section id="jeux">
+                    <div id="motInconnu"></div>
+                    <input 
+                        id="input" 
+                        name="input"
+                        type="text" 
+                        placeholder="Entrez une lettre ou un mot" 
+                    >
+                <button>Valider</button>
+                <div id="sousInput"></div>
+            </div>
 
-            <input 
-                id="input" 
-                name="input"
-                type="text" 
-                placeholder="Entrez une lettre ou un mot" 
-            >
-            <button>Valider</button>    
-            <div id="sousInput"></div>        
-            <div id="availableLetters"></div>
-            <div id="coupsRestant"></div>
-        </section>        
+            <section id="lore">
+                <div>
+                    <h2>Lore</h2> 
+                    <div> <b>Race : </b><span id="race"></span></div>
+                    <img id="loreIMG"  src="" alt="">
+                    <div id="gameOver"></div>
+                    <p >Si vous souhaitez en savoir plus sur ce personnage vous pouvez cliquer sur ce lien : <a id="wiki" href=""></a></p>
+                </div>
+            </section>          
+           
+        </div>     
+        <div id="availableLetters"></div> 
     </div>
 </main>
 <footer>
     <div class="container">
-        &copy; Proposé par Pascal LORIA
+        <span>&copy;</span> Proposé par Pascal LORIA
     </div>        
 </footer>    
-<script src="words.js"></script>
+<script src="seigneurDesAnneaux.js"></script>
 <script src="pendu.js"></script> 
 </body>
 </html>
