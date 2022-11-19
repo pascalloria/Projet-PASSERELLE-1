@@ -30,6 +30,9 @@ body {
     color : var(--couleurPrinciaple);
     background-image: url(ressources/images/mainFond.webp);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     font-family: bilbo,Arial, sans-serif;
 }
 
@@ -100,6 +103,7 @@ header img {
     display: flex;    
     justify-content: space-around;
     row-gap: 2em;
+    flex-wrap: wrap;
 }   
 
 #dessin img {
@@ -167,9 +171,11 @@ header img {
     .container {
         width: 90%;
     } 
+
+
     #availableLetters{        
-        grid-template-columns: repeat(3,1fr);    
-        grid-auto-rows: 50px;       
+        grid-template-columns: repeat(10,1fr);    
+        grid-auto-rows: 30px;       
         font-size: 0.8em;
     }
     
