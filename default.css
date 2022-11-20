@@ -33,13 +33,13 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    font-family: bilbo,Arial, sans-serif;
+    font-family: Ardagh,Arial, sans-serif;
 }
 
 
 h1,h2,h3,h4 {
     font-weight: normal;    
-    font-family: Ardagh;
+    font-family: ring;
 }
 
 h1 {
@@ -114,14 +114,15 @@ header img {
 #pendu {
     display: flex;    
     justify-content: space-around;
-    row-gap: 2em;
-    flex-wrap: wrap;
+    row-gap: 2em;  
 }   
 
 #dessin {
     padding: 1em;
-    flex-basis: 50%;
-    box-shadow: 2px 2px 25px; 
+    flex-basis: 45%;
+    box-shadow: 2px 2px 20px ;
+    -webkit-box-shadow: 2px 2px 20px ;
+    -moz-box-shadow: 2px 2px 20px ;
 }
 
 #dessin img {
@@ -130,23 +131,37 @@ header img {
 }
 #lore {
     flex-basis: 45%;
-    box-shadow: 2px 2px 25px; 
+    box-shadow: 2px 2px 20px ;
+    -webkit-box-shadow: 2px 2px 20px ;
+    -moz-box-shadow: 2px 2px 20px ;
+}
+#lore a {
+    color: var(--couleurTertiaire);   
 }
 
 #jeux {
     display: flex;
     flex-direction: column;
-    row-gap: 1em;
-    
+    row-gap: 1em;  
 }
 
-#lore p {
-    margin-top:10px ;
-    padding-top: 10px;
-    display:none
+#lore {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;  
+    padding: 0 1em;  
+    font-size: 1.2em;    
+}
+#lore h2 {
+    margin-bottom: 0;
 }
 
-#availableLetters{
+#loreTxt {
+    display:none;
+    margin: 0;
+}
+
+#availableLetters {
     margin-top: 3em;
     font-size: 2em;   
     display:grid;
@@ -155,9 +170,7 @@ header img {
     column-gap: 1em;
     row-gap: 1em;
     align-content: center;
-    justify-content: space-around; 
-    
-    
+    justify-content: space-around;  
 }
 
 .letters {
@@ -172,12 +185,9 @@ header img {
     }
     
     #availableLetters{        
-        grid-template-columns: repeat(8,1fr);
-        column-gap: 0.5em;        
+        grid-template-columns: repeat(10,1fr);
+        column-gap: 0.5em;      
     }
-
-
-    
 }
 
 @media screen and (max-width :730px ) {
@@ -186,21 +196,48 @@ header img {
     }
 
     #availableLetters{        
-        grid-template-columns: repeat(6,1fr);               
-    }
+        grid-template-columns: repeat(10,1fr);               
+    }    
 
-    
+      h1 {
+        font-size: 1.8em;
+    }
 }
+
+
 @media screen and (max-width :460px ) {
     .container {
         width: 90%;
     } 
-
-
     #availableLetters{        
         grid-template-columns: repeat(10,1fr);    
         grid-auto-rows: 30px;       
         font-size: 0.8em;
     }
+
+  
+
+    #pendu {
+        flex-wrap: wrap;
+    }
+
+    #dessin{
+        flex-basis: 100%;
+    }
+
+    #lore{
+        flex-basis: 100%;
+        background-color: #ffffffb7;
+    }
+    #lore h2 {
+        font-size: 1.2em;
+    }   
+
+    #dessin img {
+        height: 150px;
+        width: auto;
+    }
+
+
     
 }

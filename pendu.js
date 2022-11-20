@@ -118,7 +118,7 @@ function gameEnded(){
     btn.text("restart")
     state="gameOver"
     //desactivate()
-    $("#lore p").css("display","inline")
+    $("#lore p").css("display","block")
     console.log(character.lien)
     wiki.attr("href",character.lien)
     wiki.html(character.name)

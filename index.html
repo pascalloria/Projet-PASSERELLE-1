@@ -11,8 +11,7 @@
     <meta property="og:title" content="Le seigneur des pendus"> 
     <meta property="og:description" content="Un jeux de pendu basé sur les personnages de l'univers du seigneur des anneaux">
     <meta property="og:image" content="https://raw.githubusercontent.com/pascalloria/Projet-Passerrelle-1/master/ressources/images/cartesocial.png">
-    <meta property="og:url" content="https://pascalloria.github.io/Projet-Passerrelle-1/">
-    <meta name="twitter:card" content="summary_large_image">   
+    <meta property="og:url" content="https://pascalloria.github.io/Projet-Passerrelle-1/">   
     <!-- Importante mais en debat -->
         <!-- affice nom du site -->
         <meta property="og:site_name" content="Le seigneur des pendus">
@@ -37,29 +36,27 @@
     <div id="container" class="container"> 
         <div id="pendu">
             <div id="dessin">                
-                <img id="penduImg" src="ressources/images/pendu0.png" alt="" srcset="">  
-                <section id="jeux">
+                <img id="penduImg" src="ressources/images/pendu0.png" alt="pendu" srcset="">  
+                <div id="jeux">
                     <div id="motInconnu"></div>
-                    <input 
-                        id="input" 
-                        name="input"
-                        type="text" 
-                        placeholder="Entrez une lettre ou un mot" 
-                    >
-                <button>Valider</button>
-                <div id="sousInput"></div>
-            </div>
-
-            <div id="lore">
-                <div>
-                    <h2>Infos</h2> 
-                    <div> <b>Race : </b><span id="race"></span></div>
-                    <img id="loreIMG"  src="" alt="">
-                    <div id="gameOver"></div>
-                    <p >Si vous souhaitez en savoir plus sur ce personnage vous pouvez cliquer sur ce lien : <br><br> <a id="wiki" href="" target="_blank" rel="noopener noreferrer"></a></p>
+                    <div>
+                        <input 
+                            id="input" 
+                            name="input"
+                            type="text" 
+                            placeholder="Entrez une lettre ou un mot" 
+                        >
+                        <button>Valider</button>
+                    </div>
+                    <div id="sousInput"></div>
                 </div>
-            </div>          
-           
+            </div>
+            <div id="lore">                
+                <h2>Indices et Infos</h2> 
+                <div> <b>Race : </b><span id="race"></span></div>                    
+                <div id="gameOver"></div>
+                <p id="loreTxt">Si vous souhaitez en savoir plus sur ce personnage vous pouvez cliquer sur ce lien : <br><br> <a id="wiki" href="" target="_blank" rel="noopener noreferrer"></a></p>
+            </div> 
         </div>     
         <div id="availableLetters"></div> 
     </div>
