@@ -16,17 +16,17 @@
 
 
 
-html {
+html, body {
     height: 100%;
     width: 100%;
+    margin: 0;  
+    min-width: 320px;
 }
 
-body {
-    margin: 0;
+body {   
     display: flex;
     flex-direction: column;
-    text-align: center;
-    height: 100%;
+    text-align: center;    
     color : var(--couleurPrincipale);
     background-image: url(ressources/images/mainFond.webp);
     background-size: cover;
@@ -87,16 +87,14 @@ footer span {
     width: 1000px;
 }
 
-#container{
-    
-    padding: 2em;
+#container{    
+    padding: 2em 0;
 }
 #headerDiv {
     padding: 0.3em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 header img {
@@ -149,11 +147,11 @@ header img {
     display: flex;
     flex-direction: column;
     row-gap: 1em;  
-    padding: 0 1em;  
+    padding: 0.5em;  
     font-size: 1.2em;    
 }
 #lore h2 {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 #loreTxt {
@@ -196,7 +194,9 @@ header img {
     }
 
     #availableLetters{        
-        grid-template-columns: repeat(10,1fr);               
+        grid-template-columns: repeat(10,1fr); 
+        grid-auto-rows: 35px;       
+        font-size: 0.8em;              
     }    
 
       h1 {
@@ -212,9 +212,11 @@ header img {
     #availableLetters{        
         grid-template-columns: repeat(10,1fr);    
         grid-auto-rows: 30px;       
-        font-size: 0.8em;
+        font-size: 0.6em;
     }
-
+    h1 {
+        font-size: 1.4em;
+    }
   
 
     #pendu {
