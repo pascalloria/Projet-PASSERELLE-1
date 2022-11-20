@@ -26,12 +26,12 @@ function coderMot (motInconnu) {
     return wordCode.join(" ");
 }
 
-function verifierInput(l){
+function verifierInput(input){
     if(input.val().length > 1){
-        motComplet(input.val());
+        motComplet(input);
         return false
     } else {
-        letter = l;
+        letter = input;
     }
     return true
 }   
@@ -54,7 +54,7 @@ function desactivate(){
 }
 
 function motComplet(input){
-    if (input.toLowerCase() === hiddenWord){
+    if (input === hiddenWord){
         victory()
     }else{
         i++
