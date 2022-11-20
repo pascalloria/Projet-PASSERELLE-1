@@ -27,7 +27,7 @@ function coderMot (motInconnu) {
 }
 
 function verifierInput(input){
-    if(input.val().length > 1){
+    if(input.length > 1){
         motComplet(input);
         return false
     } else {

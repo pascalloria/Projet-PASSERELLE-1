@@ -1,5 +1,5 @@
 :root {
-    --couleurPrinciaple     : #395144 ;
+    --couleurPrincipale     : #395144 ;
     --couleurSecondaire    : #4E6C50 ;
     --couleurTertiaire      : #AA8B56 ;
     --couleurQuarnaire      : #F0EBCE ;
@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     text-align: center;
     height: 100%;
-    color : var(--couleurPrinciaple);
+    color : var(--couleurPrincipale);
     background-image: url(ressources/images/mainFond.webp);
     background-size: cover;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ a:hover{
 
 
 header{
-    background-color: var(--couleurPrinciaple);    
+    background-color: var(--couleurPrincipale);    
     color: var(--couleurQuarnaire);
 }
 main {    
@@ -118,15 +118,26 @@ header img {
     flex-wrap: wrap;
 }   
 
+#dessin {
+    padding: 1em;
+    flex-basis: 50%;
+    box-shadow: 2px 2px 25px; 
+}
+
 #dessin img {
     height: 270px;
     width: auto;
+}
+#lore {
+    flex-basis: 45%;
+    box-shadow: 2px 2px 25px; 
 }
 
 #jeux {
     display: flex;
     flex-direction: column;
     row-gap: 1em;
+    
 }
 
 #lore p {
@@ -144,7 +155,8 @@ header img {
     column-gap: 1em;
     row-gap: 1em;
     align-content: center;
-    justify-content: space-around;  
+    justify-content: space-around; 
+    
     
 }
 
