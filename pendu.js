@@ -54,7 +54,7 @@ function desactivate(){
 }
 
 function motComplet(input){
-    if (input === hiddenWord){
+    if (input.toLowerCase() === hiddenWord){
         victory()
     }else{
         i++
