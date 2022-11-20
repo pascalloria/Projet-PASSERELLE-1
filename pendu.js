@@ -122,6 +122,7 @@ function gameEnded(){
     console.log(character.lien)
     wiki.attr("href",character.lien)
     wiki.html(character.name)
+    availableLettersDiv.css("display","none")
     
       
 }
@@ -144,7 +145,9 @@ function restartVar () {
     $("#motInconnu").html(wordJoined); 
     gameOver.html("");
     updateImg() ;
-    $("#lore p").css("display","none")   ;
+    race.html(character.race);
+    $("#lore p").css("display","none");
+    availableLettersDiv.css("display","grid")   ;
 
 }
 
