@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trouver le mot </title>
     <link rel="stylesheet" href="default.css">
+    <link rel="shortcut icon" href="ressources/images/favicon.png" type="image/x-icon">
+    <!-- Obligatoire -->
+    <meta property="og:title" content="Le seigneur des pendus"> 
+    <meta property="og:description" content="Un jeux de pendu basé sur les personnages de l'univers du seigneur des anneaux">
+    <meta property="og:image" content="http://liendelimage.com/image.png">
+    <meta property="og:url" content="https://pascalloria.github.io/Projet-Passerrelle-1/">
+    <meta name="twitter:card" content="summary_large_image">   
+    <!-- Importante mais en debat -->
+        <!-- affice nom du site -->
+        <meta property="og:site_name" content="Le seigneur des pendus">
+        <!-- remplace l'image par un texte alternatif si pas chargé -->
+        <meta property="og:image:alt" content="Image d'un jeu de pendu">
+
     <script
         src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
         integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
@@ -39,11 +52,11 @@
 
             <section id="lore">
                 <div>
-                    <h2>Lore</h2> 
+                    <h2>Infos</h2> 
                     <div> <b>Race : </b><span id="race"></span></div>
                     <img id="loreIMG"  src="" alt="">
                     <div id="gameOver"></div>
-                    <p >Si vous souhaitez en savoir plus sur ce personnage vous pouvez cliquer sur ce lien : <a id="wiki" href="" target="_blank" rel="noopener noreferrer"></a></p>
+                    <p >Si vous souhaitez en savoir plus sur ce personnage vous pouvez cliquer sur ce lien : <br><br> <a id="wiki" href="" target="_blank" rel="noopener noreferrer"></a></p>
                 </div>
             </section>          
            
@@ -53,7 +66,7 @@
 </main>
 <footer>
     <div class="container">
-        <span>&copy;</span> Proposé par Pascal LORIA
+        <span>&copy;</span>  <a href="http://pascalloria.fr/" target="_blank" rel="noopener noreferrer">Proposé par Pascal LORIA</a>  
     </div>        
 </footer>    
 <script src="seigneurDesAnneaux.js"></script>

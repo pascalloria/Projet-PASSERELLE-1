@@ -51,6 +51,16 @@ h2 {
     font-size: 2em;
 }
 
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+a:hover{
+    font-weight: 800;
+    font-size: 1.1em;
+}
+
 
 header{
     background-color: var(--couleurPrinciaple);    
@@ -65,6 +75,8 @@ footer{
     padding: 0.5em;
     font-family: ring;
     color: var(--couleurQuarnaire);
+    flex-basis: 25px;
+    
 }
 
 footer span {

@@ -129,8 +129,12 @@ function gameEnded(){
 
 
 function restartVar () {
+    lastcharacter=character;
     i = 0;
-    character = personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))];
+    do {
+         character = personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))];
+    }
+    while ( lastcharacter === character );   
     word = character.name;
     hiddenWord = word.toLowerCase();
     availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -158,7 +162,8 @@ let availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","
 let wordCode=[];
 let i = 0;
 let wordJoined = coderMot(hiddenWord);
-let state = "gameOn"
+let state = "gameOn";
+let lastcharacter;
 let penduImgs=[
     "Pendu0.png","Pendu1.png",
     "Pendu2.png","Pendu3.png",
