@@ -15,7 +15,7 @@ function checkInArray(array,l){
 
 function disabledLetterFromAvailableLetters(letter){
     availableLetters = arrayRemove(availableLetters,letter);
-    $("#"+letter).attr("disabled","disabled")
+    document.querySelector("#"+letter).setAttribute("disabled","disabled")
 }
 
 // remplacer le mot a trouver par _ *nbre lettre
@@ -46,11 +46,11 @@ function addLetterMotCoder(letter) {
     indices.forEach(indice => {        
         wordCode[indice]=letter        
     });  
-    $("#motInconnu").html(wordCode.join(""));   
+    document.querySelector("#motInconnu").innerHTML = wordCode.join("");   
 }
 
 function desactivate(){
-    btn.attr("disabled","disabled")    
+    btn.setAttribute("disabled","disabled")    
 }
 
 function motComplet(input){
@@ -58,8 +58,7 @@ function motComplet(input){
         victory()
     }else{
         i++
-        updateImg()
-        //coupsRestant()
+        updateImg()   
     }
 }
 
@@ -92,12 +91,12 @@ function validate(letter) {
 
 function defeat() { 
     i=12  
-    gameOver.html("Vous avez PERDU ! Le personnage etait : " + word)
+    gameOver.innerHTML = "Vous avez PERDU ! Le personnage etait : " + word ;
     gameEnded()    
 }
 
 function victory() {  
-    gameOver.html("Vous avez Gagné ! Le personnage est bien : " + word )
+    gameOver.innerHTML = "Vous avez Gagné ! Le personnage est bien : " + word
     i=13 
     gameEnded() 
     
@@ -105,28 +104,32 @@ function victory() {
 
 function clickBtn () {
     if (state =="gameOn"){
-        validate(input.val().toLowerCase())
+        validate(input.value.toLowerCase())
     } else {
         restartVar()
-        state="gameOn"
-        btn.text("Valider")
+        state = "gameOn"
+        btn.textContent = "Valider"
     }  
 }
 
 function gameEnded(){
-    updateImg()
-    btn.text("restart")
-    state="gameOver"
+    updateImg();
+    btn.textContent = "restart";
+    state = "gameOver";
     //desactivate()
-    $("#lore p").css("display","block")
-    console.log(character.lien)
-    wiki.attr("href",character.lien)
-    wiki.html(character.name)
-    availableLettersDiv.css("display","none")
-    
-      
+    document.querySelector("#lore p").style.display = "block" ;
+    wiki.setAttribute("href",character.lien);
+    wiki.innerHTML = character.name;
+    availableLettersDiv.style.display = "none";          
 }
-  
+
+function reactivateLetterBtn(){
+    let letterBtns= document.querySelectorAll(".letters")   
+    letterBtns.forEach((letterBtn) => {
+        letterBtn.removeAttribute("disabled") ;   
+    });
+}
+    
 
 
 function restartVar () {
@@ -138,21 +141,21 @@ function restartVar () {
     while ( lastcharacter === character );   
     word = character.name;
     hiddenWord = word.toLowerCase();
-    availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    wordCode=[] ;
+    availableLetters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    wordCode = [] ;
     wordJoined = coderMot(hiddenWord);
-    $(".letters").removeAttr("disabled");
-    $("#motInconnu").html(wordJoined); 
-    gameOver.html("");
+    reactivateLetterBtn()
+    document.querySelector("#motInconnu").innerHTML=wordJoined; 
+    gameOver.innerHTML = "";
     updateImg() ;
-    race.html(character.race);
-    $("#lore p").css("display","none");
-    availableLettersDiv.css("display","grid")   ;
+    race.innerHTML = character.race;
+    document.querySelector("#lore p").style.display = "none";
+    availableLettersDiv.style.display ="grid";
 
 }
 
 function updateImg() {
-    penduImg.attr("src","ressources/images/"+penduImgs[i])    
+    penduImg.setAttribute("src","ressources/images/"+penduImgs[i])    
 }
 
 //declare variable
@@ -167,63 +170,67 @@ let i = 0;
 let wordJoined = coderMot(hiddenWord);
 let state = "gameOn";
 let lastcharacter;
-let penduImgs=[
+let penduImgs = [
     "Pendu0.png","Pendu1.png",
     "Pendu2.png","Pendu3.png",
     "Pendu4.png","Pendu5.png",
     "Pendu6.png","Pendu7.png",
     "Pendu8.png","Pendu9.png",
     "Pendu10.png","Pendu11.png",
-    "Pendu12.png","Pendu13.png"];
+    "Pendu12.png","Pendu13.png"
+    ];
 
 // declarer variable DOM
-let input = $("#input");
-let btn = $("button");
-let sousInput=$("#sousInput");
-let availableLettersDiv = $("#availableLetters");
-let penduImg = $("#penduImg");
-let gameOver= $("#gameOver");
-let race = $("#race");
-let wiki = $("#wiki");
+let input = document.querySelector("#input");
+let btn = document.querySelector("button");
+let sousInput = document.querySelector("#sousInput");
+let availableLettersDiv = document.querySelector("#availableLetters");
+let penduImg = document.querySelector("#penduImg");
+let gameOver = document.querySelector("#gameOver");
+let race = document.querySelector("#race");
+let wiki = document.querySelector("#wiki");
 
 
 
 //afficher le pattern du mot
-$("#motInconnu").html(wordJoined);
-race.html(character.race)
+document.querySelector("#motInconnu").innerHTML= wordJoined;
+race.innerHTML= character.race;
 
 // Event : bouton ou enter valide l'input
-btn.click(()=>clickBtn());
+btn.addEventListener("click", clickBtn);
 
-input.keydown(function (e) {
+input.addEventListener("keydown" , function (e) {
     if(e.keyCode === 13){    
-        if (!btn.attr("disabled")){
-            btn.click()
-        }           
+        if (!btn.attributes("disabled")){
+            btn.addEventListener(click)
+                }           
     }
 });
 // Controler l'input : pas de chiffre
-input.on("input",(e) => {     
+input.addEventListener("input",(e) => {     
     if (!isValid(e.target.value.slice(-1)) ){        
-        input.css("borderColor","red") 
+        input.style.borderColor = "red";
         desactivate ()
-        input.val("")
-        sousInput.html("Merci d'entrez une lettre ou un mot")
-        sousInput.css("color","red")
+        input.value= ""
+        sousInput.innerHTML = "Merci d'entrez une lettre ou un mot"
+        sousInput.style.color = "red"
     }    else {
-        btn.removeAttr("disabled");
-        sousInput.html("")
+        btn.removeAttribute("disabled");
+        sousInput.innerHTML= ""
     }
 });
 
 // reset input Value
-input.click(()=>input.val(""))
+input.addEventListener("click", ()=> {input.val=""})
 
 // afficher les lettres
 availableLetters.forEach(letter => {
-    let letterDiv  =$("<button  class='letters'>" + letter+ "</button>").appendTo(availableLettersDiv);
-    letterDiv.attr("id",letter)
-    letterDiv.click (()=> validate(letter));  
+    let letterDiv  = document.createElement("button");
+    availableLettersDiv.append(letterDiv)
+    letterDiv.classList.add("letters")
+    letterDiv.id = letter
+    letterDiv.innerHTML = letter
+    letterDiv.addEventListener("click", () => validate(letter));  
 });
 
 
