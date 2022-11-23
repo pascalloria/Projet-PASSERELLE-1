@@ -90,15 +90,18 @@ function validate(letter) {
 }
 
 function defeat() { 
+    audioDefeat.play()
     i=12  
     gameOver.innerHTML = "Vous avez PERDU ! Le personnage etait : " + word ;
     gameEnded()    
+
 }
 
 function victory() {  
     gameOver.innerHTML = "Vous avez Gagné ! Le personnage est bien : " + word
     i=13 
     gameEnded() 
+    audioVictory.play()
     
 }
 
@@ -179,6 +182,11 @@ let penduImgs = [
     "Pendu10.png","Pendu11.png",
     "Pendu12.png","Pendu13.png"
     ];
+
+let audioVictory = new Audio("ressources/music/sdaVictory.mp3")
+let audioDefeat = new Audio("ressources/music/sdaDefeat.mp3")
+audioDefeat.volume = 0.2;
+audioVictory.volume = 0.2
 
 // declarer variable DOM
 let input = document.querySelector("#input");
