@@ -191,7 +191,7 @@ audioVictory.volume = 0.2
 // declarer variable DOM
 let input = document.querySelector("#input");
 let btn = document.querySelector("button");
-let sousInput = document.querySelector("#sousInput");
+let subInput = document.querySelector("#subInput");
 let availableLettersDiv = document.querySelector("#availableLetters");
 let penduImg = document.querySelector("#penduImg");
 let gameOver = document.querySelector("#gameOver");
@@ -220,16 +220,16 @@ input.addEventListener("input",(e) => {
         input.style.borderColor = "red";
         desactivate ()
         input.value= ""
-        sousInput.innerHTML = "Merci d'entrez une lettre ou un mot"
-        sousInput.style.color = "red"
+        subInput.innerHTML = "Merci d'entrez une lettre ou un mot"
+        subInput.style.color = "red"
     }    else {
         btn.removeAttribute("disabled");
-        sousInput.innerHTML= ""
+        subInput.innerHTML= ""
     }
 });
 
 // reset input Value
-input.addEventListener("click", ()=> {input.val=""})
+input.addEventListener("click", ()=> {input.value=""})
 
 // afficher les lettres
 availableLetters.forEach(letter => {
