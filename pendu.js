@@ -1,42 +1,29 @@
 
-// Fonction pou retirer une valeur d'un tableau depuis sa valeur
-function arrayRemove(arr, value) { 
-    return arr.filter(function(ele){ 
-        return ele != value; 
-    });
-}
 
-function checkInArray(array,l){
-    if (array.includes(l)) {
-        return true        ;
-    } else {
-        return false    ;
-}}
-
-function disabledLetterFromAvailableLetters(letter){
-    availableLetters = arrayRemove(availableLetters,letter);
+// Fonction pour desactiver un bouton.
+function disabledLetterBtn(letter){   
     document.querySelector("#"+letter).setAttribute("disabled","disabled")
 }
 
 // remplacer le mot a trouver par _ *nbre lettre
-function coderMot (motInconnu) {
-    motInconnu.split("").forEach(letter => {
+function coderMot (inknowWord) {
+    inknowWord.split("").forEach(letter => {
         wordCode.push(" _ ")  ;   
     }); 
     return wordCode.join(" ");
 }
-
+// gerer l'input clavier
 function verifierInput(input){
     if(input.length > 1){
-        motComplet(input);
+        fullWordCompare(input);
         return false
     } else {
-        letter = input;
+        return true
     }
-    return true
+    
 }   
-
-function addLetterMotCoder(letter) {
+// remplacer le _ du mot coder par la lettre proposé
+function addLetterWordCode(letter) {
     let idx=hiddenWord.indexOf(letter)
     let indices = []
     while(idx !=-1) {
@@ -48,45 +35,23 @@ function addLetterMotCoder(letter) {
     });  
     document.querySelector("#motInconnu").innerHTML = wordCode.join("");   
 }
-
+// desactiver le bouton "Valider"
 function desactivate(){
     btn.setAttribute("disabled","disabled")    
 }
-
-function motComplet(input){
+// compart un mot proposé par input aux mot à trouver
+function fullWordCompare(input){
     if (input === hiddenWord){
         victory()
     }else{
         i++
-        updateImg()   
+        updateSVG()   
     }
 }
 
 // verifions si la donnée est bien une lettre avec methode RegEx
 function isValid(value){
     return /^[a-zA-Z]/.test(value)
-}
-
-function validate(letter) {
-    if (i < coupsMax ) {
-        if (verifierInput(letter)) {            
-            disabledLetterFromAvailableLetters(letter)            
-            if(checkInArray(hiddenWord,letter)){
-                addLetterMotCoder(letter)
-                if (wordCode.join("") == hiddenWord){
-                    victory()
-                }
-            } else {
-                i++
-                updateImg()
-                //coupsRestant()  
-            }         
-        } else {
-            return
-        }        
-    } else {
-        defeat()
-    }
 }
 
 function defeat() { 
@@ -99,10 +64,12 @@ function defeat() {
 
 function victory() {  
     gameOver.innerHTML = "Vous avez Gagné ! Le personnage est bien : " + word
-    i=13 
+    i=0
     gameEnded() 
     audioVictory.play()
-    
+    document.querySelector("#dessin svg").style.display="none";
+    document.querySelector("#victory").style.display="inline-block";
+    document.querySelector("#motInconnu").innerHTML = word;
 }
 
 function clickBtn () {
@@ -116,7 +83,7 @@ function clickBtn () {
 }
 
 function gameEnded(){
-    updateImg();
+    updateSVG();
     btn.textContent = "restart";
     state = "gameOver";
     //desactivate()
@@ -131,11 +98,9 @@ function reactivateLetterBtn(){
     letterBtns.forEach((letterBtn) => {
         letterBtn.removeAttribute("disabled") ;   
     });
-}
-    
+}  
 
-
-function restartVar () {
+function restartVar() {
     lastcharacter=character;
     i = 0;
     do {
@@ -150,21 +115,53 @@ function restartVar () {
     reactivateLetterBtn()
     document.querySelector("#motInconnu").innerHTML=wordJoined; 
     gameOver.innerHTML = "";
-    updateImg() ;
+    updateSVG() ;
     race.innerHTML = character.race;
     document.querySelector("#lore p").style.display = "none";
     availableLettersDiv.style.display ="grid";
+    document.querySelector("#dessin svg").style.display="inline-block";
+    document.querySelector("#victory").style.display="none";
+    input.value= ""
 
 }
 
-function updateImg() {
-    penduImg.setAttribute("src","ressources/images/"+penduImgs[i])    
+function updateSVG() {
+    if ( i != 0) {
+       document.querySelector("#hangmanSVG").innerHTML += hangmanSVGs[i]   
+    } else {
+        document.querySelector("#hangmanSVG").innerHTML =""  
+    }
+
+    
+}
+function validate(letter) {
+    input.value= ""
+    if (i < maxHit ) {
+        if (verifierInput(letter)) {            
+            disabledLetterBtn(letter)            
+            if(hiddenWord.includes(letter)){
+                addLetterWordCode(letter)
+                if (wordCode.join("") == hiddenWord){
+                    victory()
+                }
+            } else {
+                i++
+                updateSVG()
+                
+            }         
+        } else {
+            return
+        }        
+    } else {
+        defeat()
+    }
 }
 
-//declare variable
-let coupsMax = 11;
+
+//declaration des variables
+let maxHit = 11;
 let letter;
-let character=personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))]
+let character = personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))]
 let word = character.name;
 let hiddenWord = word.toLowerCase();
 let availableLetters= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -173,22 +170,27 @@ let i = 0;
 let wordJoined = coderMot(hiddenWord);
 let state = "gameOn";
 let lastcharacter;
-let penduImgs = [
-    "Pendu0.png","Pendu1.png",
-    "Pendu2.png","Pendu3.png",
-    "Pendu4.png","Pendu5.png",
-    "Pendu6.png","Pendu7.png",
-    "Pendu8.png","Pendu9.png",
-    "Pendu10.png","Pendu11.png",
-    "Pendu12.png","Pendu13.png"
-    ];
+let hangmanSVGs = ['',
+    '<rect fill="#000000" height="12" id="svg_1" stroke="#000000" width="131" x="22" y="239"/>',
+    '<rect fill="#000000" height="216" id="svg_2" stroke="#000000" width="11" x="42" y="33"/>',    
+    '<rect fill="#0a0909" height="8" id="svg_3" stroke="#000000" width="109" x="33" y="27"/>',
+    '<rect fill="#0a0909" height="8.25" id="svg_4" stroke="#000000" transform="rotate(-35 71.7851 48.5509)" width="57.04" x="43.27" y="44.43"/>',
+    '<rect fill="#000000" height="30" id="svg_5" stroke="#000000" width="6" x="125" y="34"/>',
+    '<ellipse cx="127.5" cy="83" fill="#ffffff" fill-opacity="0.01" id="svg_6" rx="20.5" ry="18" stroke="#000000"/>',
+    '<rect fill="#000000" height="69" id="svg_7" stroke="#000000" width="9" x="123" y="102"/>',
+    '<rect fill="#000000" height="1" id="svg_8" stroke="#000000" width="0" x="189" y="111"/>',
+    '<rect fill="#000000" height="8.63" id="svg_9" stroke="#000000" transform="rotate(-25 145.485 118.541)" width="35.93" x="127.52" y="114.23"/>',
+    '<rect fill="#000000" height="8.63" id="svg_10" stroke="#000000" transform="rotate(25 110 118)" width="35.93" x="91.53" y="113.68"/>',
+    '<rect fill="#000000" height="8.23" id="svg_11" stroke="#000000" transform="rotate(50 142.236 180.185)" width="42.46" x="121.01" y="176.07"/>',
+    '<rect fill="#000000" height="8.23" id="svg_12" stroke="#000000" transform="rotate(-50 112 179)" width="42.46" x="90.27" y="174.88"/>'
+]
 
 let audioVictory = new Audio("ressources/music/sdaVictory.mp3")
 let audioDefeat = new Audio("ressources/music/sdaDefeat.mp3")
 audioDefeat.volume = 0.2;
 audioVictory.volume = 0.2
 
-// declarer variable DOM
+// declarationd des variables DOM
 let input = document.querySelector("#input");
 let btn = document.querySelector("button");
 let subInput = document.querySelector("#subInput");
@@ -207,11 +209,9 @@ race.innerHTML= character.race;
 // Event : bouton ou enter valide l'input
 btn.addEventListener("click", clickBtn);
 
-input.addEventListener("keydown" , function (e) {
-    if(e.keyCode === 13){    
-        if (!btn.attributes("disabled")){
-            btn.addEventListener(click)
-                }           
+input.addEventListener("keydown" , function (e) {    
+    if(e.keyCode === 13){
+        clickBtn()
     }
 });
 // Controler l'input : pas de chiffre

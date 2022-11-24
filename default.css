@@ -112,7 +112,7 @@ header img {
 #pendu {
     display: flex;    
     justify-content: space-around;
-    row-gap: 2em;  
+    column-gap: 1em;  
 }   
 
 #dessin {
@@ -123,8 +123,13 @@ header img {
     -moz-box-shadow: 2px 2px 20px ;
 }
 
-#dessin img {
-    height: 270px;
+#victory {
+    display: none;
+}
+
+
+#dessin svg, img {
+    height: 250px;
     width: auto;
 }
 #lore {
@@ -160,13 +165,13 @@ header img {
 }
 
 #availableLetters {
-    margin-top: 3em;
-    font-size: 2em;   
+    margin-top: 1em;
+    font-size: 1.5em;   
     display:grid;
     grid-auto-rows: 60px;
     grid-template-columns: repeat(10,1fr);
     column-gap: 1em;
-    row-gap: 1em;
+    row-gap: 0.7em;
     align-content: center;
     justify-content: space-around;  
 }
@@ -221,10 +226,12 @@ header img {
 
     #pendu {
         flex-wrap: wrap;
+        row-gap: 2em;
     }
 
     #dessin{
         flex-basis: 100%;
+
     }
 
     #lore{
