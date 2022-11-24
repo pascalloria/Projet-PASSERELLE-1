@@ -146,6 +146,13 @@ header img {
     display: flex;
     flex-direction: column;
     row-gap: 1em;  
+    
+}
+
+#motInconnu {
+    -moz-text-shadow: 2px 2px 2px rgba(250, 250, 250, 0.6);
+    -webkit-text-shadow: 2px 2px 2px rgba(250, 250, 250, 0.6);
+    text-shadow: 2px 2px 2px rgba(250, 250, 250, 0.6);
 }
 
 #lore {
