@@ -1,20 +1,6 @@
 let personnageSDA = [
     
-    {
-        "name":"Galadriel",
-        "race":"Elfe",
-        "lien":"https://fr.wikipedia.org/wiki/Galadriel"
-    },
-    {
-        "name":"Sauron",
-        "race":"Maiar",
-        "lien" : "https://fr.wikipedia.org/wiki/Sauron"
-    },
-    {
-        "name":"Gandalf",
-        "race":"Maiar",
-        "lien" : "https://fr.wikipedia.org/wiki/Gandalf"
-    },
+    
     {
         "name":"Manwe",
         "race":"Valar ",
@@ -48,7 +34,7 @@ let personnageSDA = [
     {
         "name":"Orome",
         "race":"Valar ",
-        "lien":"https://fr.wikipedia.org/wiki/https://fr.wikipedia.org/wiki/Orom%C3%AB"
+        "lien":"https://fr.wikipedia.org/wiki/Orom%C3%AB"
     }, 
     {
         "name":"Nienna",
@@ -59,64 +45,212 @@ let personnageSDA = [
         "name":"Morgoth",
         "race":"Valar ",
         "lien":"https://fr.wikipedia.org/wiki/Morgoth"
-    }
-]
-
-
-
-let autre = [
-      "Aragorn","humain",
-"Frodon", 
-"Isildur",
-"Elrond",
-
-"Legolas",
-"Gollum",
-"Arwen",
-"Gimli",
-"Bilbon", 
-"Saroumane",
-"Balrog",
-"Elendil",
-"Bombadil",
-"Samsagace", 
-"Boromir",
-"Eowyn",
-"Peregrin", 
-"Eomer",
-"Celeborn",
-"Meriadoc",
-"Angmar",
-"Theoden",
-"Faramir",
-"Radagast",
-"Arachne",
-"Grima",
-"Sylvebarbe",
-"Glorfindel",
-"Theodwyn",
-"Eldarion",
-"Anarion",
-"Denethor",
-"Gamelin",
-"Elrohir",
-"Forlong",
-"Beregond",
-"Folcwine",
-"Deor",
-"Bergil",
-"Minas-Thirith",
-"Adar",
-"Gil-galad",
-"Arondir",
-"Celebrimbor",
-"Elendil",
-"Halbrand",
-"Bronwyn",
-"Durin",
-"Disa",
-"Nori",
-"Poppy ",
-"Fingolfin",
-"Feanor",
+    },
+   
+    {
+        "name":"Sauron",
+        "race":"Maiar",
+        "lien" : "https://fr.wikipedia.org/wiki/Sauron"
+    },
+    {
+        "name":"Gandalf",
+        "race":"Maiar",
+        "lien" : "https://fr.wikipedia.org/wiki/Gandalf"
+    },
+    {
+        "name":"Saroumane",
+        "race":"Maiar",
+        "lien" : "https://fr.wikipedia.org/wiki/Saroumane"
+    },
+    {
+        "name":"Radagast",
+        "race":"Maiar",
+        "lien" : "https://fr.wikipedia.org/wiki/Radagast"
+    },
+    {
+        "name":"Gothmog",
+        "race":"Maiar",
+        "lien" : "https://fr.wikipedia.org/wiki/Gothmog"
+    },
+    {
+        "name":"Galadriel",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Galadriel"
+    },
+    {
+        "name":"Fingolfin",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Fingolfin"
+    },
+    {
+        "name":"Celebrimbor",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Celebrimbor"
+    },
+    {
+        "name":"Feanor",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Fëanor"
+    },
+    {
+        "name":"Elrond",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Elrond"
+    },
+    {
+        "name":"Arwen",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Arwen"
+    },
+    {
+        "name":"Legolas",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Legolas"
+    },
+    {
+        "name":"Celeborn",
+        "race":"Elfe",
+        "lien":"https://fr.wikipedia.org/wiki/Celeborn"
+    },
+    {
+        "name":"Aragorn",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Aragorn"
+    },
+    {
+        "name":"Isildur",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Isildur"
+    },
+    {
+        "name":"Elendil",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Elendil"
+    },
+     {
+        "name":"Boromir",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Boromir"
+    },
+    {
+        "name":"Eowyn",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Eowyn"
+    },{
+        "name":"Eomer",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Éomer"
+    },{
+        "name":"Theoden",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Théoden"
+    },{
+        "name":"Faramir",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Faramir"
+    },{
+        "name":"Grima",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Gríma"
+    },
+    {
+        "name":"Denethor",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Denethor"
+    },{
+        "name":"Halbrand",
+        "race":"Hommes",
+        "lien":"https://fr.wikipedia.org/wiki/Halbrand"
+    },{
+        "name":"Frodon",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Frodon"
+    },{
+        "name":"Gollum",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Gollum"
+    },
+    {
+        "name":"Bilbon",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Bilbon"
+    },
+    {
+        "name":"Samsagace",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Samsagace"
+    },
+    {
+        "name":"Meriadoc",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Meriadoc_Brandebouc"
+    }, {
+        "name":"Peregrin",
+        "race":"Hobbit",
+        "lien":"https://fr.wikipedia.org/wiki/Peregrin_Touque"
+    },{
+        "name":"Gimli",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Gimli_(Terre_du_Milieu)"
+    },{
+        "name":"Durin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Durin"
+    },
+    {
+        "name":"Balin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Balin"
+    },{
+        "name":"Bifur",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Bifur"
+    },{
+        "name":"Bofur",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Bofur"
+    },{
+        "name":"Bombur",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Bombur"
+    },{
+        "name":"Dori",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Dori"
+    },{
+        "name":"Dwalin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Dwalin"
+    },{
+        "name":"Fili",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Fíli"
+    },
+    {
+        "name":"Gloin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Glóin"
+    },
+    {
+        "name":"Kili",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Kíli"
+    },
+    {
+        "name":"Nori",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Nori"
+    },{
+        "name":"Oin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Óin"
+    },{
+        "name":"Ori",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Ori"
+    },{
+        "name":"Thorin",
+        "race":"Nain",
+        "lien":"https://fr.wikipedia.org/wiki/Thorin_et_Cie#Thorin"
+    },
 ]
