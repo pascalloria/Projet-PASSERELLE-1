@@ -88,7 +88,7 @@ footer span {
 }
 
 #container{    
-    padding: 2em 0;
+    padding: 2em ;
 }
 #headerDiv {
     padding: 0.3em;
@@ -249,9 +249,13 @@ header img {
         font-size: 1.2em;
     }   
 
-    #dessin img {
+    #dessin img, #dessin svg {
         height: 150px;
         width: auto;
+    }
+
+    #container{    
+        padding: 1em 0 ;
     }
 
 
