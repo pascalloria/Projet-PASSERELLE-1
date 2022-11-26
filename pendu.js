@@ -13,7 +13,7 @@ function coderMot (inknowWord) {
     return wordCode.join(" ");
 }
 // gerer l'input clavier
-function verifierInput(input){
+function checkInput(input){
     if(input.length > 1){
         fullWordCompare(input);
         return false
@@ -139,7 +139,7 @@ function updateSVG() {
 function validate(letter) {
     input.value= ""
     if (i < maxHit ) {
-        if (verifierInput(letter)) {            
+        if (checkInput(letter)) {            
             disabledLetterBtn(letter)            
             if(hiddenWord.includes(letter)){
                 addLetterWordCode(letter)
