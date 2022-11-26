@@ -56,7 +56,7 @@ function isValid(value){
 
 function defeat() { 
     audioDefeat.play()
-    i=12  
+    i=11  
     gameOver.innerHTML = "Vous avez PERDU ! Le personnage etait : " + word ;
     gameEnded()    
 
@@ -127,7 +127,9 @@ function restartVar() {
 
 function updateSVG() {
     if ( i != 0) {
-       document.querySelector("#hangmanSVG").innerHTML += hangmanSVGs[i]   
+        console.log(hangmanSVGs[i])
+        document.querySelector("#hangmanSVG").innerHTML += hangmanSVGs[i]   
+
     } else {
         document.querySelector("#hangmanSVG").innerHTML =""  
     }
@@ -159,7 +161,7 @@ function validate(letter) {
 
 
 //declaration des variables
-let maxHit = 11;
+let maxHit = 10;
 let letter;
 let character = personnageSDA[Math.floor(Math.random()*(personnageSDA.length-1))]
 let word = character.name;
@@ -178,7 +180,6 @@ let hangmanSVGs = ['',
     '<rect fill="#000000" height="30" id="svg_5" stroke="#000000" width="6" x="125" y="34"/>',
     '<ellipse cx="127.5" cy="83" fill="#ffffff" fill-opacity="0.01" id="svg_6" rx="20.5" ry="18" stroke="#000000"/>',
     '<rect fill="#000000" height="69" id="svg_7" stroke="#000000" width="9" x="123" y="102"/>',
-    '<rect fill="#000000" height="1" id="svg_8" stroke="#000000" width="0" x="189" y="111"/>',
     '<rect fill="#000000" height="8.63" id="svg_9" stroke="#000000" transform="rotate(-25 145.485 118.541)" width="35.93" x="127.52" y="114.23"/>',
     '<rect fill="#000000" height="8.63" id="svg_10" stroke="#000000" transform="rotate(25 110 118)" width="35.93" x="91.53" y="113.68"/>',
     '<rect fill="#000000" height="8.23" id="svg_11" stroke="#000000" transform="rotate(50 142.236 180.185)" width="42.46" x="121.01" y="176.07"/>',
